@@ -18,7 +18,7 @@ const PORT = 3000;
 
 
 // cb function has a reference to client via arg passed in, convention is to call it sock
-// or: a callback function specifying what to when a client connects
+// or: handleConnect is a callback function specifying what to do when a client connects
 const handleConnect = (sock) => { 
     console.log(`got connection from ${sock.remoteAddress}:${sock.remotePort}`);
     // sock methods: on, write, end, ...
@@ -31,11 +31,6 @@ const handleConnect = (sock) => {
 const handleData = (data, sock) => {
     console.log(data+''); // data is a buffer, so must convert it to a string
     sock.write('you sent:' + data); // send data back to client
-    // sock.write('HTTP/1.1 200 OK\r\n');
-    // sock.write('Content-Type: text/html\r\n');
-    // sock.write('\r\n');
-    // sock.write('<html><body><h1>hello</h1></body></html>');
-
     // sock.end(); // close the connection
 }
 

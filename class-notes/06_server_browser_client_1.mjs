@@ -1,29 +1,21 @@
 
-// Socket:
-// - A socket is one endpoint of a two-way communication link between two programs running on the network.
-// - Mediates communication to a connected client or server
 
-// net module:
-// - A module that provides functions for creatiing servers and clients.
-// - Creates a tcp/ip server. Can connect to this server with any client that supports tcp/ip.
-
-
-// The following example creates a SERVER that listens for connections on port 3000.
-// console.log(): server side logging
-// sock.write(): client side logging
+// In 05_echo_server, we built a client from the netcat.
+// But in order to respond to a browser client, our server should be able to speak in a HTTP protocol.
+// We will still build an echo server.
 
 import {createServer} from 'net'; // We use net module!
 const HOST = '127.0.0.1';
 const PORT = 3000;
 
 
-// cb function has a reference to client via arg passed in, convention is to call it sock
-// or: a callback function specifying what to when a client connects
 const handleConnect = (sock) => { 
     console.log(`got connection from ${sock.remoteAddress}:${sock.remotePort}`);
     // sock methods: on, write, end, ...
     // on: event listener, can react to well-known events
     sock.on('data', (data) => handleData(data, sock)); // when data is received, call handleData (cb func)
+    // (automatically passes data as argument to a callback func, and inside that cb func, call handleData)
+    // use bind??? handleData.bind(null, sock) => see lost treasures - bind
     sock.on('close', () => console.log('connection closed'));
 }
 
@@ -37,10 +29,9 @@ const handleData = (data, sock) => {
     sock.write('HTTP/1.1 200 OK\r\n');
     sock.write('Content-Type: text/html\r\n');
     sock.write('\r\n');
-    sock.write('<html><body><h1>hello</h1></body></html>');
-    // sock.write('<html><body><h1>hello</h1></body></html>');
+    sock.write('<h1>hello browser, this is what you sent me</h1><pre>' + data + '</pre>'); // data gets automatically converted to string
 
-    sock.end(); // close the connection
+    // sock.end(); // close the connection
 }
 
 
@@ -50,14 +41,5 @@ const server = createServer(handleConnect); // returns a server object
 
 console.log('starting server');
 server.listen(PORT, HOST); // start listening for any connections on port 3000
-console.log('server started');
+console.log('server started at portal', PORT);
 
-
-
-// [def] echo server:
-// - listen for connections,
-// - when it receives data, it sends it back to the client
-// The above example is an echo server.
-
-
-// 9:57
