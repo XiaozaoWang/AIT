@@ -1,0 +1,14 @@
+<form method="POST" action="/complaints/add">
+    Line: <select name="line" id="">
+        F<option value="F"></option>
+        C<option value="C"></option>
+        A<option value="A"></option>
+    </select>
+    <textarea name="complaintText" placeholder="Complaint goes here"></textarea>
+    delay <input type="checkbox" name="box" value="delay">
+    cleanliness <input type="checkbox" name="box" value="cleanliness">
+    safety <input type="checkbox" name="box" value="safety">
+    <input type="submit">
+</form>
+
+{{!-- Name: reference in params string! --}}

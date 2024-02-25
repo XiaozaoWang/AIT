@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buttons on Left and Right</title>
+<style>
+  /* Button container */
+  .button-container {
+    position: fixed;
+    top: 50%; /* Align vertically in the middle */
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center; /* Center buttons horizontally */
+  }
+
+  /* Left button styles */
+  .button-left {
+    display: inline-block;
+    margin-right: 20px; /* Add some space between buttons */
+  }
+
+  /* Right button styles */
+  .button-right {
+    display: inline-block;
+    margin-left: 20px; /* Add some space between buttons */
+  }
+
+  /* Button styles */
+  .button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="button-container">
+  <button class="button button-left">Left Button 1</button>
+  <button class="button button-left">Left Button 2</button>
+  <button class="button button-right">Right Button 1</button>
+  <button class="button button-right">Right Button 2</button>
+</div>
+
+</body>
+</html>

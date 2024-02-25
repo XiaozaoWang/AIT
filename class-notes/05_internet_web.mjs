@@ -239,4 +239,28 @@
 // inspect -> network 
 // (you can see the request and response messages)
 
-// We will use net module to create a web servor
+// We will use net module to create a web server
+
+
+
+
+
+// ///////////////////////////////////////////////////////////////////////
+
+// Appendix
+
+// ///////////////////////////////////////////////////////////////////////
+
+// ------------------------------
+// HTTP mathods
+// - GET: retrieve a resource
+// - POST: send data to a server to create a resource
+// - PUT: send data to a server to update a resource
+// - DELETE: send data to a server to delete a resource
+// - HEAD: retrieve the headers of a resource
+// - OPTIONS: retrieve the methods that a server supports
+// - PATCH: send data to a server to partially update a resource
+// - TRACE: echo the request back to the client
+// - CONNECT: convert the request connection to a transparent TCP/IP tunnel
+// - ...
+

@@ -1,0 +1,19 @@
+<form method="GET" action="">
+		<input type="number" name="minlives" placeholder="min lives" value="">	
+		<input type="submit">	
+</form>
+
+{{#if myCats}}
+there are cats
+{{/if}}
+<ul>
+{{#each myCats}}
+<li>{{{name}}} x {{lives}}</li>
+{{/each}}
+</ul>
+
+<form method="POST">
+		<input type="text" name="name" placeholder="names" value="">	
+		<input type="number" name="lives" placeholder="lives" value="">	
+		<input type="submit">	
+</form>

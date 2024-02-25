@@ -1,7 +1,4 @@
 
-
-
-
 class Request { // for parsing the request message, so that we can generate different response for different requests
     constructor(s) {
         // GET /foo.html HTTP/1.1 -> ['GET', '/foo.html', 'HTTP/1.1']
